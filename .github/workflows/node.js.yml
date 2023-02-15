@@ -23,6 +23,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'        
+        cache-dependency-path: 'js/yarn.lock'
     - run: npm ci
       working-directory: './js'
     - run: yarn test
