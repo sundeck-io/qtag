@@ -22,7 +22,10 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+        cache: 'npm'        
     - run: npm ci
+      working-directory: './js'
     - run: yarn test
+      working-directory: './js'    
     - run: yarn build
+      working-directory: './js'    
