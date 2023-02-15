@@ -32,13 +32,13 @@ var qtagParserStaticData struct {
 func qtagParserInit() {
 	staticData := &qtagParserStaticData
 	staticData.literalNames = []string{
-		"", "", "", "", "", "'--'", "'/*'", "'*/'", "'//'", "'\\n'", "'\\r'",
-		"", "'{'",
+		"", "", "", "", "", "'qtag:'", "'--'", "'/*'", "'*/'", "'//'", "'\\n'",
+		"'\\r'", "", "'{'",
 	}
 	staticData.symbolicNames = []string{
 		"", "BT_IDENTIFIER", "DQ_IDENTIFIER", "SQ_LITERAL", "DOLLAR_LITERAL",
-		"DASH_COMMENT", "OPENC", "CLOSEC", "C_COMMENT", "NL", "CR", "SPACE",
-		"CURLY_O", "OTHER",
+		"QTAG_PREFIX", "DASH_COMMENT", "OPENC", "CLOSEC", "C_COMMENT", "NL",
+		"CR", "SPACE", "CURLY_O", "OTHER",
 	}
 	staticData.ruleNames = []string{
 		"body", "comment", "lineComment", "multilineComment", "commentBody",
@@ -46,37 +46,38 @@ func qtagParserInit() {
 	}
 	staticData.predictionContextCache = antlr.NewPredictionContextCache()
 	staticData.serializedATN = []int32{
-		4, 1, 13, 75, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
+		4, 1, 14, 78, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
 		4, 2, 5, 7, 5, 2, 6, 7, 6, 1, 0, 5, 0, 16, 8, 0, 10, 0, 12, 0, 19, 9, 0,
 		1, 0, 5, 0, 22, 8, 0, 10, 0, 12, 0, 25, 9, 0, 1, 0, 5, 0, 28, 8, 0, 10,
 		0, 12, 0, 31, 9, 0, 1, 0, 1, 0, 1, 1, 1, 1, 3, 1, 37, 8, 1, 1, 2, 1, 2,
 		1, 2, 1, 2, 1, 3, 1, 3, 1, 3, 1, 3, 1, 4, 5, 4, 48, 8, 4, 10, 4, 12, 4,
-		51, 9, 4, 1, 4, 1, 4, 5, 4, 55, 8, 4, 10, 4, 12, 4, 58, 9, 4, 1, 4, 1,
-		4, 1, 5, 5, 5, 63, 8, 5, 10, 5, 12, 5, 66, 9, 5, 1, 6, 1, 6, 5, 6, 70,
-		8, 6, 10, 6, 12, 6, 73, 9, 6, 1, 6, 4, 17, 29, 64, 71, 0, 7, 0, 2, 4, 6,
-		8, 10, 12, 0, 3, 2, 0, 5, 5, 8, 8, 1, 1, 9, 10, 1, 0, 12, 12, 75, 0, 23,
-		1, 0, 0, 0, 2, 36, 1, 0, 0, 0, 4, 38, 1, 0, 0, 0, 6, 42, 1, 0, 0, 0, 8,
-		49, 1, 0, 0, 0, 10, 64, 1, 0, 0, 0, 12, 67, 1, 0, 0, 0, 14, 16, 9, 0, 0,
-		0, 15, 14, 1, 0, 0, 0, 16, 19, 1, 0, 0, 0, 17, 18, 1, 0, 0, 0, 17, 15,
-		1, 0, 0, 0, 18, 20, 1, 0, 0, 0, 19, 17, 1, 0, 0, 0, 20, 22, 3, 2, 1, 0,
-		21, 17, 1, 0, 0, 0, 22, 25, 1, 0, 0, 0, 23, 21, 1, 0, 0, 0, 23, 24, 1,
-		0, 0, 0, 24, 29, 1, 0, 0, 0, 25, 23, 1, 0, 0, 0, 26, 28, 9, 0, 0, 0, 27,
-		26, 1, 0, 0, 0, 28, 31, 1, 0, 0, 0, 29, 30, 1, 0, 0, 0, 29, 27, 1, 0, 0,
-		0, 30, 32, 1, 0, 0, 0, 31, 29, 1, 0, 0, 0, 32, 33, 5, 0, 0, 1, 33, 1, 1,
-		0, 0, 0, 34, 37, 3, 4, 2, 0, 35, 37, 3, 6, 3, 0, 36, 34, 1, 0, 0, 0, 36,
-		35, 1, 0, 0, 0, 37, 3, 1, 0, 0, 0, 38, 39, 7, 0, 0, 0, 39, 40, 3, 8, 4,
-		0, 40, 41, 7, 1, 0, 0, 41, 5, 1, 0, 0, 0, 42, 43, 5, 6, 0, 0, 43, 44, 3,
-		8, 4, 0, 44, 45, 5, 7, 0, 0, 45, 7, 1, 0, 0, 0, 46, 48, 5, 11, 0, 0, 47,
-		46, 1, 0, 0, 0, 48, 51, 1, 0, 0, 0, 49, 47, 1, 0, 0, 0, 49, 50, 1, 0, 0,
-		0, 50, 52, 1, 0, 0, 0, 51, 49, 1, 0, 0, 0, 52, 56, 3, 10, 5, 0, 53, 55,
-		5, 11, 0, 0, 54, 53, 1, 0, 0, 0, 55, 58, 1, 0, 0, 0, 56, 54, 1, 0, 0, 0,
-		56, 57, 1, 0, 0, 0, 57, 59, 1, 0, 0, 0, 58, 56, 1, 0, 0, 0, 59, 60, 3,
-		12, 6, 0, 60, 9, 1, 0, 0, 0, 61, 63, 8, 2, 0, 0, 62, 61, 1, 0, 0, 0, 63,
-		66, 1, 0, 0, 0, 64, 65, 1, 0, 0, 0, 64, 62, 1, 0, 0, 0, 65, 11, 1, 0, 0,
-		0, 66, 64, 1, 0, 0, 0, 67, 71, 5, 12, 0, 0, 68, 70, 9, 0, 0, 0, 69, 68,
-		1, 0, 0, 0, 70, 73, 1, 0, 0, 0, 71, 72, 1, 0, 0, 0, 71, 69, 1, 0, 0, 0,
-		72, 13, 1, 0, 0, 0, 73, 71, 1, 0, 0, 0, 8, 17, 23, 29, 36, 49, 56, 64,
-		71,
+		51, 9, 4, 1, 4, 1, 4, 3, 4, 55, 8, 4, 1, 4, 5, 4, 58, 8, 4, 10, 4, 12,
+		4, 61, 9, 4, 1, 4, 1, 4, 1, 5, 5, 5, 66, 8, 5, 10, 5, 12, 5, 69, 9, 5,
+		1, 6, 1, 6, 5, 6, 73, 8, 6, 10, 6, 12, 6, 76, 9, 6, 1, 6, 4, 17, 29, 67,
+		74, 0, 7, 0, 2, 4, 6, 8, 10, 12, 0, 3, 2, 0, 6, 6, 9, 9, 1, 1, 10, 11,
+		1, 0, 13, 13, 79, 0, 23, 1, 0, 0, 0, 2, 36, 1, 0, 0, 0, 4, 38, 1, 0, 0,
+		0, 6, 42, 1, 0, 0, 0, 8, 49, 1, 0, 0, 0, 10, 67, 1, 0, 0, 0, 12, 70, 1,
+		0, 0, 0, 14, 16, 9, 0, 0, 0, 15, 14, 1, 0, 0, 0, 16, 19, 1, 0, 0, 0, 17,
+		18, 1, 0, 0, 0, 17, 15, 1, 0, 0, 0, 18, 20, 1, 0, 0, 0, 19, 17, 1, 0, 0,
+		0, 20, 22, 3, 2, 1, 0, 21, 17, 1, 0, 0, 0, 22, 25, 1, 0, 0, 0, 23, 21,
+		1, 0, 0, 0, 23, 24, 1, 0, 0, 0, 24, 29, 1, 0, 0, 0, 25, 23, 1, 0, 0, 0,
+		26, 28, 9, 0, 0, 0, 27, 26, 1, 0, 0, 0, 28, 31, 1, 0, 0, 0, 29, 30, 1,
+		0, 0, 0, 29, 27, 1, 0, 0, 0, 30, 32, 1, 0, 0, 0, 31, 29, 1, 0, 0, 0, 32,
+		33, 5, 0, 0, 1, 33, 1, 1, 0, 0, 0, 34, 37, 3, 4, 2, 0, 35, 37, 3, 6, 3,
+		0, 36, 34, 1, 0, 0, 0, 36, 35, 1, 0, 0, 0, 37, 3, 1, 0, 0, 0, 38, 39, 7,
+		0, 0, 0, 39, 40, 3, 8, 4, 0, 40, 41, 7, 1, 0, 0, 41, 5, 1, 0, 0, 0, 42,
+		43, 5, 7, 0, 0, 43, 44, 3, 8, 4, 0, 44, 45, 5, 8, 0, 0, 45, 7, 1, 0, 0,
+		0, 46, 48, 5, 12, 0, 0, 47, 46, 1, 0, 0, 0, 48, 51, 1, 0, 0, 0, 49, 47,
+		1, 0, 0, 0, 49, 50, 1, 0, 0, 0, 50, 54, 1, 0, 0, 0, 51, 49, 1, 0, 0, 0,
+		52, 55, 5, 5, 0, 0, 53, 55, 3, 10, 5, 0, 54, 52, 1, 0, 0, 0, 54, 53, 1,
+		0, 0, 0, 55, 59, 1, 0, 0, 0, 56, 58, 5, 12, 0, 0, 57, 56, 1, 0, 0, 0, 58,
+		61, 1, 0, 0, 0, 59, 57, 1, 0, 0, 0, 59, 60, 1, 0, 0, 0, 60, 62, 1, 0, 0,
+		0, 61, 59, 1, 0, 0, 0, 62, 63, 3, 12, 6, 0, 63, 9, 1, 0, 0, 0, 64, 66,
+		8, 2, 0, 0, 65, 64, 1, 0, 0, 0, 66, 69, 1, 0, 0, 0, 67, 68, 1, 0, 0, 0,
+		67, 65, 1, 0, 0, 0, 68, 11, 1, 0, 0, 0, 69, 67, 1, 0, 0, 0, 70, 74, 5,
+		13, 0, 0, 71, 73, 9, 0, 0, 0, 72, 71, 1, 0, 0, 0, 73, 76, 1, 0, 0, 0, 74,
+		75, 1, 0, 0, 0, 74, 72, 1, 0, 0, 0, 75, 13, 1, 0, 0, 0, 76, 74, 1, 0, 0,
+		0, 9, 17, 23, 29, 36, 49, 54, 59, 67, 74,
 	}
 	deserializer := antlr.NewATNDeserializer(nil)
 	staticData.atn = deserializer.Deserialize(staticData.serializedATN)
@@ -119,15 +120,16 @@ const (
 	QTagParserDQ_IDENTIFIER  = 2
 	QTagParserSQ_LITERAL     = 3
 	QTagParserDOLLAR_LITERAL = 4
-	QTagParserDASH_COMMENT   = 5
-	QTagParserOPENC          = 6
-	QTagParserCLOSEC         = 7
-	QTagParserC_COMMENT      = 8
-	QTagParserNL             = 9
-	QTagParserCR             = 10
-	QTagParserSPACE          = 11
-	QTagParserCURLY_O        = 12
-	QTagParserOTHER          = 13
+	QTagParserQTAG_PREFIX    = 5
+	QTagParserDASH_COMMENT   = 6
+	QTagParserOPENC          = 7
+	QTagParserCLOSEC         = 8
+	QTagParserC_COMMENT      = 9
+	QTagParserNL             = 10
+	QTagParserCR             = 11
+	QTagParserSPACE          = 12
+	QTagParserCURLY_O        = 13
+	QTagParserOTHER          = 14
 )
 
 // QTagParser rules.
@@ -598,7 +600,7 @@ func (p *QTagParser) LineComment() (localctx ILineCommentContext) {
 		p.SetState(40)
 		_la = p.GetTokenStream().LA(1)
 
-		if !((int64((_la - -1)) & ^0x3f) == 0 && ((int64(1)<<(_la - -1))&3073) != 0) {
+		if !((int64((_la - -1)) & ^0x3f) == 0 && ((int64(1)<<(_la - -1))&6145) != 0) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)
@@ -738,6 +740,12 @@ type ICommentBodyContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// GetQtag returns the qtag token.
+	GetQtag() antlr.Token
+
+	// SetQtag sets the qtag token.
+	SetQtag(antlr.Token)
+
 	// GetPrefix returns the prefix rule contexts.
 	GetPrefix() ICommentPrefixContext
 
@@ -757,6 +765,7 @@ type ICommentBodyContext interface {
 type CommentBodyContext struct {
 	*antlr.BaseParserRuleContext
 	parser antlr.Parser
+	qtag   antlr.Token
 	prefix ICommentPrefixContext
 	json   IJsonBodyContext
 }
@@ -783,6 +792,10 @@ func NewCommentBodyContext(parser antlr.Parser, parent antlr.ParserRuleContext, 
 
 func (s *CommentBodyContext) GetParser() antlr.Parser { return s.parser }
 
+func (s *CommentBodyContext) GetQtag() antlr.Token { return s.qtag }
+
+func (s *CommentBodyContext) SetQtag(v antlr.Token) { s.qtag = v }
+
 func (s *CommentBodyContext) GetPrefix() ICommentPrefixContext { return s.prefix }
 
 func (s *CommentBodyContext) GetJson() IJsonBodyContext { return s.json }
@@ -790,22 +803,6 @@ func (s *CommentBodyContext) GetJson() IJsonBodyContext { return s.json }
 func (s *CommentBodyContext) SetPrefix(v ICommentPrefixContext) { s.prefix = v }
 
 func (s *CommentBodyContext) SetJson(v IJsonBodyContext) { s.json = v }
-
-func (s *CommentBodyContext) CommentPrefix() ICommentPrefixContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(ICommentPrefixContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(ICommentPrefixContext)
-}
 
 func (s *CommentBodyContext) JsonBody() IJsonBodyContext {
 	var t antlr.RuleContext
@@ -829,6 +826,26 @@ func (s *CommentBodyContext) AllSPACE() []antlr.TerminalNode {
 
 func (s *CommentBodyContext) SPACE(i int) antlr.TerminalNode {
 	return s.GetToken(QTagParserSPACE, i)
+}
+
+func (s *CommentBodyContext) QTAG_PREFIX() antlr.TerminalNode {
+	return s.GetToken(QTagParserQTAG_PREFIX, 0)
+}
+
+func (s *CommentBodyContext) CommentPrefix() ICommentPrefixContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ICommentPrefixContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ICommentPrefixContext)
 }
 
 func (s *CommentBodyContext) GetRuleContext() antlr.RuleContext {
@@ -894,29 +911,44 @@ func (p *QTagParser) CommentBody() (localctx ICommentBodyContext) {
 		p.GetErrorHandler().Sync(p)
 		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 4, p.GetParserRuleContext())
 	}
-	{
-		p.SetState(52)
+	p.SetState(54)
+	p.GetErrorHandler().Sync(p)
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 5, p.GetParserRuleContext()) {
+	case 1:
+		{
+			p.SetState(52)
 
-		var _x = p.CommentPrefix()
+			var _m = p.Match(QTagParserQTAG_PREFIX)
 
-		localctx.(*CommentBodyContext).prefix = _x
+			localctx.(*CommentBodyContext).qtag = _m
+		}
+
+	case 2:
+		{
+			p.SetState(53)
+
+			var _x = p.CommentPrefix()
+
+			localctx.(*CommentBodyContext).prefix = _x
+		}
+
 	}
-	p.SetState(56)
+	p.SetState(59)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for _la == QTagParserSPACE {
 		{
-			p.SetState(53)
+			p.SetState(56)
 			p.Match(QTagParserSPACE)
 		}
 
-		p.SetState(58)
+		p.SetState(61)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(59)
+		p.SetState(62)
 
 		var _x = p.JsonBody()
 
@@ -1019,14 +1051,14 @@ func (p *QTagParser) CommentPrefix() (localctx ICommentPrefixContext) {
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(64)
+	p.SetState(67)
 	p.GetErrorHandler().Sync(p)
-	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 6, p.GetParserRuleContext())
+	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 7, p.GetParserRuleContext())
 
 	for _alt != 1 && _alt != antlr.ATNInvalidAltNumber {
 		if _alt == 1+1 {
 			{
-				p.SetState(61)
+				p.SetState(64)
 				_la = p.GetTokenStream().LA(1)
 
 				if _la <= 0 || _la == QTagParserCURLY_O {
@@ -1038,9 +1070,9 @@ func (p *QTagParser) CommentPrefix() (localctx ICommentPrefixContext) {
 			}
 
 		}
-		p.SetState(66)
+		p.SetState(69)
 		p.GetErrorHandler().Sync(p)
-		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 6, p.GetParserRuleContext())
+		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 7, p.GetParserRuleContext())
 	}
 
 	return localctx
@@ -1135,22 +1167,22 @@ func (p *QTagParser) JsonBody() (localctx IJsonBodyContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(67)
+		p.SetState(70)
 		p.Match(QTagParserCURLY_O)
 	}
-	p.SetState(71)
+	p.SetState(74)
 	p.GetErrorHandler().Sync(p)
-	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 7, p.GetParserRuleContext())
+	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 8, p.GetParserRuleContext())
 
 	for _alt != 1 && _alt != antlr.ATNInvalidAltNumber {
 		if _alt == 1+1 {
-			p.SetState(68)
+			p.SetState(71)
 			p.MatchWildcard()
 
 		}
-		p.SetState(73)
+		p.SetState(76)
 		p.GetErrorHandler().Sync(p)
-		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 7, p.GetParserRuleContext())
+		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 8, p.GetParserRuleContext())
 	}
 
 	return localctx

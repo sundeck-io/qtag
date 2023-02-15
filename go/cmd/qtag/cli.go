@@ -10,12 +10,16 @@ import (
 )
 
 func main() {
+	usage := flag.Bool("usage", false, "whether or not to show usage")
 	unidentified := flag.Bool("unidentified", false, "whether or not to include unidentified comment patterns")
 	unexpected := flag.Bool("unexpected", false, "whether to include unexpected attributes of known of comment patterns")
 	flag.Parse()
 
-	fmt.Printf("unidentified: %v,", *unidentified)
-	fmt.Printf("unexpected: %v", *unexpected)
+	if *usage {
+		flag.Usage()
+		return
+	}
+
 	flag.Bool("empty", true, "whether or not to include empty comment prefixes")
 	stdin, err := io.ReadAll(os.Stdin)
 

@@ -19,7 +19,7 @@ String.prototype.replaceString = function(findNoRegex, replaceNoRegex) {
 // Template for creating Snowflake Function
 const parserFunction = `
 CREATE OR REPLACE FUNCTION 
-  "{{database}}"."{{schema}}"._EXTRACT(query string)
+  "{{database}}"."{{schema}}"._QTAG(query string)
   RETURNS variant
   LANGUAGE JAVASCRIPT
 AS
@@ -39,12 +39,12 @@ $$;
 `
 const wrapperFunction = `
 CREATE OR REPLACE SECURE FUNCTION 
-  "{{database}}"."{{schema}}".EXTRACT(query string)
+  "{{database}}"."{{schema}}".QTAG(query string)
   COPY GRANTS 
   RETURNS ARRAY
   AS
 $$
-  case when length(query) < 100000 then "{{database}}"."{{schema}}"._extract(query)::ARRAY
+  case when length(query) < 100000 then "{{database}}"."{{schema}}"._QTAG(query)::ARRAY
   else null
   end
 $$;

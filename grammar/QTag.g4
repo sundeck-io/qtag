@@ -5,7 +5,7 @@ BT_IDENTIFIER: '`' ( ~'`' | '``' )* '`';
 DQ_IDENTIFIER: '"' ( ~'"' | '""' )* '"';
 SQ_LITERAL: '\'' ('\\' . | '\'\'' | ~['\\])* '\'';
 DOLLAR_LITERAL: '$$' ( ~'"' | '""' )* '"';
-
+QTAG_PREFIX: 'qtag:';
 DASH_COMMENT: '--';
 OPENC: '/*';
 CLOSEC: '*/';
@@ -33,7 +33,7 @@ multilineComment: OPENC commentBody CLOSEC;
 
 commentBody:
  SPACE*
- prefix=commentPrefix
+ (qtag=QTAG_PREFIX|prefix=commentPrefix)
  SPACE*
  json=jsonBody;
 
