@@ -1,0 +1,6 @@
+js/dist
+.idea
+js/node_modules
+js/yarn-error.log
+**/*.jar
+**/gen/

@@ -1,0 +1,49 @@
+
+- name: dbt
+  site: "https://github.com/dbt-labs/dbt-core"
+  identifier:
+    fields:
+      app: dbt
+  fields:
+  - name: app
+    type: APPLICATION
+  - name: dbt_version
+    type: DIMENSION
+  - name: profile_name
+    type: DIMENSION
+  - name: target_name
+    type: DIMENSION
+  - name: node_id
+    type: DIMENSION
+
+- name: sigma
+  site: "https://www.sigmacomputing.com/"
+  identifier:
+    prefix: "Sigma Σ"
+  fields:
+  - name: kind
+    type: DIMENSION
+  - name: request-id
+  - type: TRACE
+  - name: email
+    type: USER
+
+- name: hex
+  site: "https://hex.tech/"
+  identifier:
+    prefix: "Hex query metadata:"
+  fields:
+  - name: categories
+    type: DIMENSION
+  - name:   cell_type
+    type: DIMENSION
+  - name: connection
+    type: DIMENSION
+  - name: context
+    type: DIMENSION
+  - name: project_name
+    type: DIMENSION
+  - name: project_url
+    type: DIMENSION
+  - name: user_email
+    type: USER

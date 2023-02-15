@@ -1,0 +1,23 @@
+{
+  "name": "CommentQL",
+  "version": "1.0.0",
+  "description": "Extract more metadata from your queries",
+  "main": "index.js",
+  "type": "module",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "antlr4": "4.11.0",
+    "snowflake-sdk": "^1.6.18"
+  },
+  "sideEffects": false,
+  "devDependencies": {
+    "jest": "^29.4.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "build": "npx webpack",
+    "snow": "npx webpack && node src/build/snowflake.cjs dist/bundle.cjs COMMENTQL PUBLIC"
+  }
+}
