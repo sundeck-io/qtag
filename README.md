@@ -9,7 +9,7 @@ Find out more at [qtag.dev](https://qtag.dev)
 
 ## Quickstart (via Snowflake marketplace)
 
-1. Install the freely-available [Decktools Marketplace App](https://app.snowflake.com/marketplace/listing/GZTYZT5BVK/sundeck-decktools).
+1. Install the freely-available [Decktools Marketplace App](https://app.snowflake.com/marketplace/listings/Sundeck?search=sundeck).
 2. Enrich your query history with QTags using the provided scalar function.
    ```
    SELECT 
@@ -65,14 +65,14 @@ The QTag CLI tool can be installed in your environment using the following steps
 ### QTag via Snowflake Function
 
 QTag includes support to deploy the QTag parser as a self-contained Javascript UDF within Snowflake. There are two ways
-you can add this functionality to your Snowflake cluster: install the [marketplace app](https://app.snowflake.com/marketplace/listing/GZTYZT5BVK/sundeck-decktools) or manually build and install the
+you can add this functionality to your Snowflake cluster: install the [marketplace app](https://app.snowflake.com/marketplace/listings/Sundeck?search=sundeck) or manually build and install the
 function.
 
 By default, the QTag function installed in Snowflake will only extract QTags for queries of 
 
 #### Snowflake Marketplace App (a.k.a. the easy way)
 
-Install the [Decktools Snowflake App](https://app.snowflake.com/marketplace/listing/GZTYZT5BVK/sundeck-decktools) listed 
+Install the [Decktools Snowflake App](https://app.snowflake.com/marketplace/listings/Sundeck?search=sundeck) listed 
 in the Snowflake Marketplace. This is the easiest way to access the QTag functionality and 
 other future capabilities as they are added to decktools. This is free to use.
 
