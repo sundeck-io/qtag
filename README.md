@@ -9,7 +9,7 @@ Find out more at [qtag.dev](https://qtag.dev)
 
 ## Quickstart (via Snowflake marketplace)
 
-1. Install the freely-available [Decktools Marketplace App]().
+1. Install the freely-available [Decktools Marketplace App](https://app.snowflake.com/marketplace/listing/GZTYZT5BVK/sundeck-decktools).
 2. Enrich your query history with QTags using the provided scalar function.
    ```
    SELECT 
@@ -65,15 +65,16 @@ The QTag CLI tool can be installed in your environment using the following steps
 ### QTag via Snowflake Function
 
 QTag includes support to deploy the QTag parser as a self-contained Javascript UDF within Snowflake. There are two ways
-you can add this functionality to your Snowflake cluster: install the marketplace app or manually build and install the
+you can add this functionality to your Snowflake cluster: install the [marketplace app](https://app.snowflake.com/marketplace/listing/GZTYZT5BVK/sundeck-decktools) or manually build and install the
 function.
 
 By default, the QTag function installed in Snowflake will only extract QTags for queries of 
 
 #### Snowflake Marketplace App (a.k.a. the easy way)
 
-Install the Decktools Snowflake App listed in the Snowflake Marketplace. This is the easiest way to access the QTag
-functionality and other future capabilities as they are added to decktools. This is free to use.
+Install the [Decktools Snowflake App](https://app.snowflake.com/marketplace/listing/GZTYZT5BVK/sundeck-decktools) listed 
+in the Snowflake Marketplace. This is the easiest way to access the QTag functionality and 
+other future capabilities as they are added to decktools. This is free to use.
 
 #### Manually Build and Deploy
 
@@ -86,7 +87,7 @@ follow the following steps:
 1. Install all npm tools (`cd js` && `npm install`)
 1. Export SNOWFLAKE_USERNAME, SNOWFLAKE_ACCOUNT and SNOWFLAKE_PASSWORD to your environment
 1. Run `yarn snow` to deploy the function to your snowflake warehouse. It will be uploaded into the `DECKTOOLS.PUBLIC`
-   schema as `QTAG()`
+   schema as `QTAG()` (including several variants).
 
 ## Javascript Package
 
