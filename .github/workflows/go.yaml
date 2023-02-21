@@ -11,22 +11,21 @@ jobs:
     name: Build & Test JavaScript
     runs-on: ubuntu-latest
     steps:
-    - name: Set Node.js 16.x
+    - name: Set Node.js 18.x
       uses: actions/setup-node@v3
       with:
         node-version: 18.x
-        cache: 'yarn'
-        cache-dependency-path: './js/yarn.lock'
-    - name: Run test in sub-folder
-      uses: borales/actions-yarn@v4
-      with:
-        cmd: test
-        dir: js
-    - name: Run webpack build
-      uses: borales/actions-yarn@v4
-      with:
-        cmd: build
-        dir: js
+        cache: yarn
+        cache-dependency-path: js/yarn.lock
+    - run: yarn install --frozen-lockfile
+      working-directory: ./js
+    - name: Test JavaScript
+      run: yarn test
+      working-directory: ./js
+    - name: Webpack Build
+      run: yarn build
+      working-directory: ./js
+      
   go:
     name: Build & Test Go. Create CLI Artifacts.
     runs-on: ubuntu-latest
