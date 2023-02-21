@@ -15,6 +15,17 @@ func main() {
 	arbitraryAttributes := flag.Bool("allattributes", false, "include all unknown attributes for known comments (default false)")
 	flag.Parse()
 
+	fi, err := os.Stdin.Stat()
+	if err != nil {
+		panic(err)
+	}
+
+	if (fi.Mode() & os.ModeNamedPipe) == 0 {
+		flag.Usage()
+		fmt.Println("\n\nQTag expected to receive piped input but no pipe was found, terminating.\n")
+		return
+	}
+
 	if *usage {
 		flag.Usage()
 		return
