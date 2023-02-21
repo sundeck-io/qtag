@@ -1,0 +1,75 @@
+name: Go Generate, Build and Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-java@v3
+      with:
+        distribution: adopt
+        java-version: 17
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.19
+    - name: Generate
+      run: go generate -v ./...
+      working-directory: ./go
+    - name: Build
+      run: go build -v ./...
+      working-directory: ./go
+    - name: Test
+      run: go test -v ./...
+      working-directory: ./go
+
+    - name: Generate darwin/amd64
+      working-directory: ./go
+      run: env GOOS=darwin GOARCH=amd64 go build -o ../dist/ ./cmd/qtag
+    - name: Archive darwin/amd64
+      uses: actions/upload-artifact@v3
+      with:
+        name: qtag-darwin-amd64
+        path: ./dist/qtag
+
+    - name: Generate darwin/arm64
+      working-directory: ./go
+      run: env GOOS=darwin GOARCH=arm64 go build -o ../dist/ ./cmd/qtag
+    - name: Archive darwin/arm64
+      uses: actions/upload-artifact@v3
+      with:
+        name: qtag-darwin-arm64
+        path: ./dist/qtag
+    - name: Generate windows/amd64
+      working-directory: ./go
+      run: env GOOS=windows GOARCH=amd64 go build -o ../dist/ ./cmd/qtag
+    - name: Archive windows/amd64
+      uses: actions/upload-artifact@v3
+      with:
+        name: qtag-windows-amd64
+        path: ./dist/qtag
+
+    - name: Generate linux/amd64
+      working-directory: ./go
+      run: env GOOS=linux GOARCH=amd64 go build -o ../dist/ ./cmd/qtag
+    - name: Archive linux/amd64
+      uses: actions/upload-artifact@v3
+      with:
+        name: qtag-linux-amd64
+        path: ./dist/qtag
+
+    - name: Generate linux/arm64
+      working-directory: ./go
+      run: env GOOS=linux GOARCH=arm64 go build -o ../dist/ ./cmd/qtag
+    - name: Archive linux/arm64
+      uses: actions/upload-artifact@v3
+      with:
+        name: qtag-linux-arm64
+        path: ./dist/qtag
