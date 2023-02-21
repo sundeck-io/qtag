@@ -1,0 +1,13 @@
+name: sigma
+site: "https://www.sigmacomputing.com/"
+identifier:
+  prefix: "Sigma Σ"
+fields:
+  - name: kind
+    type: DIMENSION
+  - name: request-id
+    type: TRACE
+  - name: sourceUrl
+    type: DIMENSION
+  - name: email
+    type: USER

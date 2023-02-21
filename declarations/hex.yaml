@@ -1,0 +1,19 @@
+name: hex
+site: "https://hex.tech/"
+identifier:
+  prefix: "Hex query metadata:"
+fields:
+  - name: categories
+    type: DIMENSION
+  - name:   cell_type
+    type: DIMENSION
+  - name: connection
+    type: DIMENSION
+  - name: context
+    type: DIMENSION
+  - name: project_name
+    type: DIMENSION
+  - name: project_url
+    type: DIMENSION
+  - name: user_email
+    type: USER

@@ -1,0 +1,19 @@
+name: dbt
+site: "https://github.com/dbt-labs/dbt-core"
+identifier:
+  fields:
+    app: dbt
+fields:
+  - name: app
+    type: APPLICATION
+  - name: dbt_version
+    type: DIMENSION
+  - name: connection_name
+    type: DIMENSION
+  - name: profile_name
+    type: DIMENSION
+  - name: target_name
+    type: DIMENSION
+  - name: node_id
+    type: DIMENSION
+

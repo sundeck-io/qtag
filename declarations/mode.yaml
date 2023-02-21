@@ -1,0 +1,13 @@
+name: mode
+site: "https://modeanalytics.com/"
+identifier:
+  bodymatch: "https://modeanalytics.com/"
+fields:
+  - name: user
+    type: USER
+  - name: email
+    type: USER
+  - name: url
+    type: TRACE
+  - name: scheduled
+    type: DIMENSION

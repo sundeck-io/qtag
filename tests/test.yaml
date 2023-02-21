@@ -1,0 +1,97 @@
+- name: Get Random Comment
+  all: TRUE
+  query: select 1 -- random {"mykey":123}
+  outcome:
+    - source: random
+      key: mykey
+      value: 123.0
+      type: UNKNOWN
+- name: Self-describing Extraction
+  query: select 1 -- qtag:source1 {"mykey:dimension":123}
+  outcome:
+    - source: source1
+      key: mykey
+      value: 123.0
+      type: DIMENSION
+- name: Basic Sigma Test
+  query: >
+    select * from foo
+    -- Sigma Σ {"kind":"adhoc","request-id":"e0bd080279e63","email":"support@sundeck.io"}
+  outcome:
+    - source: sigma
+      key: kind
+      value: adhoc
+      type: DIMENSION
+    - source: sigma
+      key: request-id
+      value: e0bd080279e63
+      type: TRACE
+    - source: sigma
+      key: email
+      value: support@sundeck.io
+      type: USER
+- name: Alt1 Sigma Test
+  query: >
+    select * from foo
+    /* Sigma Σ {"kind":"adhoc","request-id":"e0bd080279e63","email":"support@sundeck.io"} */
+  outcome:
+    - source: sigma
+      key: kind
+      value: adhoc
+      type: DIMENSION
+    - source: sigma
+      key: request-id
+      value: e0bd080279e63
+      type: TRACE
+    - source: sigma
+      key: email
+      value: support@sundeck.io
+      type: USER
+- name: Alt2 Sigma Test
+  query: >
+    select * from foo
+    // Sigma Σ {"kind":"adhoc","request-id":"e0bd080279e63","email":"support@sundeck.io"}
+  outcome:
+    - source: sigma
+      key: kind
+      value: adhoc
+      type: DIMENSION
+    - source: sigma
+      key: request-id
+      value: e0bd080279e63
+      type: TRACE
+    - source: sigma
+      key: email
+      value: support@sundeck.io
+      type: USER
+- name: Mode test
+  query: >
+    select '1'
+    LIMIT 100
+    -- {"user":"@Wynonna","email":"support@sundeck.io","url":"https://modeanalytics.com/sundeck/reports/abc/runs/def/queries/zyc","scheduled":false}
+  outcome:
+    - source: mode
+      key: user
+      value: "@Wynonna"
+      type: USER
+    - source: mode
+      key: email
+      value: support@sundeck.io
+      type: USER
+    - source: mode
+      key: url
+      value: https://modeanalytics.com/sundeck/reports/abc/runs/def/queries/zyc
+      type: TRACE
+    - source: mode
+      key: scheduled
+      value: false
+      type: DIMENSION
+- name: ignore enclosed blocks
+  query: >
+    select '-- Sigma Σ {"kind":"adhoc"}', $$-- Sigma Σ {"kind":"adhoc"}$$, "-- Sigma Σ {""kind"":""adhoc""}" `-- Sigma Σ {"kind":"adhoc"}`
+    -- {"app":"dbt"}
+  outcome:
+    - source: dbt
+      key: app
+      value: dbt
+      type: APPLICATION
