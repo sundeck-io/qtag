@@ -22,7 +22,7 @@ func main() {
 
 	if (fi.Mode() & os.ModeNamedPipe) == 0 {
 		flag.Usage()
-		fmt.Println("\n\nQTag expected to receive piped input but no pipe was found, terminating.\n")
+		fmt.Println("\nQTag expected to receive piped input but no pipe was found, terminating.")
 		return
 	}
 
