@@ -16,7 +16,7 @@ jobs:
       with:
         node-version: 18.x
         cache: 'yarn'
-        cache-dependency-path: '**/yarn.lock'
+        cache-dependency-path: './js/yarn.lock'
     - name: Run test in sub-folder
       uses: borales/actions-yarn@v4
       with:
