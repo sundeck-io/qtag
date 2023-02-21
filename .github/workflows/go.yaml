@@ -29,4 +29,23 @@ jobs:
     - name: Test
       run: go test -v ./...
       working-directory: ./go
-
+    - name: Generate darwin/amd64
+      working-directory: ./go
+      run: env GOOS=darwin GOARCH=amd64 go build -o ../dist/darwin/amd64/ ./cmd/qtag
+    - name: Generate darwin/arm64
+      working-directory: ./go
+      run: env GOOS=darwin GOARCH=arm64 go build -o ../dist/darwin/arm64/ ./cmd/qtag
+    - name: Generate windows/amd64
+      working-directory: ./go
+      run: env GOOS=windows GOARCH=amd64 go build -o ../dist/windows/amd64/ ./cmd/qtag
+    - name: Generate linux/amd64
+      working-directory: ./go
+      run: env GOOS=linux GOARCH=amd64 go build -o ../dist/linux/amd64/ ./cmd/qtag
+    - name: Generate linux/arm64
+      working-directory: ./go
+      run: env GOOS=linux GOARCH=arm64 go build -o ../dist/linux/arm64/ ./cmd/qtag
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: dist-without-markdown
+        path: dist
