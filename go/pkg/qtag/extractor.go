@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"github.com/antlr/antlr4/runtime/Go/antlr/v4"
 	"github.com/goccy/go-yaml"
-	grammar "github.com/sundeck-io/CommentQL/go/pkg/grammar/generated"
+	grammar "github.com/sundeck-io/qtag/go/pkg/grammar/generated"
 	"strings"
 )
 

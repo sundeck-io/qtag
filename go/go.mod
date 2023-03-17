@@ -1,4 +1,4 @@
-module github.com/sundeck-io/CommentQL/go
+module github.com/sundeck-io/qtag/go
 
 go 1.19
 
