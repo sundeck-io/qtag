@@ -60,7 +60,8 @@ The QTag CLI tool can be installed in your environment using the following steps
 1. Install Golang
 2. Checkout QTag repo
 3. cd into `go` directory
-4. run go install `go install ./cmd/qtag/...`
+4. run go generate `go generate ./...`
+5. run go install `go install ./cmd/qtag/...`
 
 ### QTag via Snowflake Function
 

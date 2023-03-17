@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	flag "github.com/spf13/pflag"
-	"github.com/sundeck-io/CommentQL/go/pkg/qtag"
+	"github.com/sundeck-io/qtag/go/pkg/qtag"
 	"io"
 	"os"
 )
