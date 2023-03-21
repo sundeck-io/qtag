@@ -54,20 +54,6 @@ const templates = [
         else "{{database}}"."{{schema}}"._QTAG(query, allcomments, allattributes)::ARRAY
         end
       $$;`
-  } ,
-  {
-    name: "QTAG(complex)",
-    query: `
-      CREATE OR REPLACE SECURE FUNCTION 
-        "{{database}}"."{{schema}}".QTAG(query string, allcomments boolean, allattributes boolean)
-        COPY GRANTS 
-        RETURNS ARRAY
-        AS
-      $$
-        case when length(query) > 100000 then null 
-        else "{{database}}"."{{schema}}"._QTAG(query, allcomments, allattributes)::ARRAY
-        end
-      $$;`
   },
   {
     name: "QTAG(simple)",
