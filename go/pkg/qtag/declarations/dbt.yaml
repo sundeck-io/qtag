@@ -16,4 +16,45 @@ fields:
     type: DIMENSION
   - name: node_id
     type: DIMENSION
-
+  - name: dbt_snowflake_query_tags_version
+    type: DIMENSION
+  - name: project_name
+    type: DIMENSION
+  - name: target_name
+    type: DIMENSION
+  - name: target_database
+    type: DIMENSION
+  - name: target_schema
+    type: DIMENSION
+  - name: invocation_id
+    type: TRACE
+  - name: node_name
+    type: DIMENSION
+  - name: node_alias
+    type: DIMENSION
+  - name: node_package_name
+    type: DIMENSION
+  - name: node_original_file_path
+    type: DIMENSION
+  - name: node_database
+    type: DIMENSION
+  - name: node_schema
+    type: DIMENSION
+  - name: node_resource_type
+    type: DIMENSION
+  - name: materialized
+    type: DIMENSION
+  - name: is_incremental
+    type: DIMENSION
+  - name: node_refs
+    type: TRACE
+  - name: dbt_cloud_project_id
+    type: TRACE
+  - name: dbt_cloud_job_id
+    type: TRACE
+  - name: dbt_cloud_run_id
+    type: TRACE
+  - name: dbt_cloud_run_reason
+    type: TRACE
+  - name: dbt_cloud_run_reason_category
+    type: TRACE
