@@ -1,0 +1,21 @@
+name: dbt
+site: "https://github.com/dbt-labs/dbt-core"
+identifier:
+  fields:
+    app: sundeck
+fields:
+  - name: app
+    type: APPLICATION
+  - name: warehouse_updated
+    type: DIMENSION
+  - name: query_text_updated
+    type: DIMENSION
+  - name: flow_name
+    type: DIMENSION
+  - name: query_rejected
+    type: DIMENSION
+  - name: actions_applied
+    type: TRACE
+  - name: reject_message
+    type: TRACE
+
