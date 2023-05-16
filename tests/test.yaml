@@ -95,3 +95,25 @@
       key: app
       value: dbt
       type: APPLICATION
+- name: test extended dbt tags
+  query: |
+    select 1
+    -- {"app": "dbt", "node_package_name": "my_project", "node_refs": ["model_b", "model_c"], "node_database": "dev"}
+  outcome:
+    - source: dbt
+      key: app
+      value: dbt
+      type: APPLICATION
+    - source: dbt
+      key: node_package_name
+      value: my_project
+      type: DIMENSION
+    - source: dbt
+      key: node_refs
+      value: ["model_b", "model_c"]
+      type: TRACE
+    - source: dbt
+      key: node_database
+      value: dev
+      type: DIMENSION
+  
