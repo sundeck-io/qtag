@@ -116,4 +116,37 @@
       key: node_database
       value: dev
       type: DIMENSION
-  
+- name: test sundeck tags
+  query: |
+    select 1
+    -- {"app": "sundeck", "warehouse_updated": true, "query_text_updated": true, "flow_name": "DEFAULT", "query_rejected": false, "hooks_applied": ["hook1", "hook2"], "reject_message": "unknown"}
+  outcome:
+    - source: sundeck
+      key: app
+      value: sundeck
+      type: APPLICATION
+    - source: sundeck
+      key: warehouse_updated
+      value: true
+      type: DIMENSION
+    - source: sundeck
+      key: query_text_updated
+      value: true
+      type: DIMENSION
+    - source: sundeck
+      key: flow_name
+      value: DEFAULT
+      type: DIMENSION
+    - source: sundeck
+      key: query_rejected
+      value: false
+      type: DIMENSION
+    - source: sundeck
+      key: hooks_applied
+      value: ["hook1", "hook2"]
+      type: TRACE
+    - source: sundeck
+      key: reject_message
+      value: unknown
+      type: TRACE
+

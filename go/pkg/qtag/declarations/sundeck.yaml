@@ -1,5 +1,5 @@
-name: dbt
-site: "https://github.com/dbt-labs/dbt-core"
+name: sundeck
+site: "https://sundeck.io"
 identifier:
   fields:
     app: sundeck
@@ -14,8 +14,12 @@ fields:
     type: DIMENSION
   - name: query_rejected
     type: DIMENSION
-  - name: actions_applied
+  - name: hooks_applied
     type: TRACE
   - name: reject_message
+    type: TRACE
+  - name: parent_query_id
+    type: TRACE
+  - name: child_query_ids
     type: TRACE
 
