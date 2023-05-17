@@ -2,10 +2,11 @@ import dbt from '../../declarations/dbt.yaml';
 import hex from '../../declarations/hex.yaml';
 import mode from '../../declarations/mode.yaml';
 import sigma from '../../declarations/sigma.yaml';
+import sundeck from '../../declarations/sundeck.yaml';
 
 
 export function NewExtractor(parser) {
-  let decls = [dbt, hex, mode, sigma];
+  let decls = [dbt, hex, mode, sigma, sundeck];
 
   let e = new Extractor()
   e.parser = parser;
