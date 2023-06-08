@@ -12,15 +12,16 @@
   },
   "sideEffects": false,
   "devDependencies": {
-    "js-yaml-loader": "^1.2.2",
     "jest": "^29.4.3",
     "js-yaml": "^4.1.0",
+    "js-yaml-loader": "^1.2.2",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
   },
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "build": "npx webpack",
-    "snow": "npx webpack && node src/build/snowflake.cjs dist/bundle.cjs DECKTOOLS PUBLIC"
+    "snow": "npx webpack && node src/build/snowflake.cjs dist/bundle.cjs DECKTOOLS PUBLIC",
+    "term": "npx webpack && node src/build/snowflake.cjs dist/bundle.cjs unknown TOOLS term"
   }
 }
