@@ -1,4 +1,8 @@
 const path = require('path');
+let minify = true;
+if (process.env.NO_MINIFY) {
+    minify = false;
+}
 
 module.exports = {
   entry: './src/qtag/entry.js',
@@ -14,6 +18,7 @@ module.exports = {
   mode: 'production',
   optimization: {
     usedExports: true,
+    minimize: minify,
   },
   module: {
     rules: [{

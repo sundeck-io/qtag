@@ -22,6 +22,6 @@
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "build": "npx webpack",
     "snow": "npx webpack && node src/build/snowflake.cjs dist/bundle.cjs DECKTOOLS PUBLIC",
-    "term": "npx webpack && node src/build/snowflake.cjs dist/bundle.cjs unknown TOOLS term"
+    "term": "NO_MINIFY=true npx webpack && node src/build/snowflake.cjs dist/bundle.cjs unknown TOOLS term"
   }
 }
