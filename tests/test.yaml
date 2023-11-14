@@ -149,4 +149,28 @@
       key: reject_message
       value: unknown
       type: TRACE
-
+- name: test sundeck service tags
+  query: |
+    select 1
+    -- {"account":"ps8ehzwl","app":"sundeck","service_name":"Query Monitors","service_operation":"list","user":"f94ec932-29a3-4dea-91e8-1d531bf9c03c"}
+  outcome:
+    - source: sundeck
+      key: account
+      value: ps8ehzwl
+      type: DIMENSION
+    - source: sundeck
+      key: app
+      value: sundeck
+      type: APPLICATION
+    - source: sundeck
+      key: service_name
+      value: Query Monitors
+      type: DIMENSION
+    - source: sundeck
+      key: service_operation
+      value: list
+      type: DIMENSION
+    - source: sundeck
+      key: user
+      value: f94ec932-29a3-4dea-91e8-1d531bf9c03c
+      type: DIMENSION
