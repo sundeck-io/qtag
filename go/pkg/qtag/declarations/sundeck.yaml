@@ -14,6 +14,14 @@ fields:
     type: DIMENSION
   - name: query_rejected
     type: DIMENSION
+  - name: account
+    type: DIMENSION
+  - name: user
+    type: DIMENSION
+  - name: service_name
+    type: DIMENSION
+  - name: service_operation
+    type: DIMENSION
   - name: hooks_applied
     type: TRACE
   - name: reject_message
@@ -22,4 +30,3 @@ fields:
     type: TRACE
   - name: child_query_ids
     type: TRACE
-
