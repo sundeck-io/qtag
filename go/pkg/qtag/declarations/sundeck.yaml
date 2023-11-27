@@ -30,3 +30,7 @@ fields:
     type: TRACE
   - name: child_query_ids
     type: TRACE
+  - name: workload
+    type: DIMENSION
+  - name: kind
+    type: DIMENSION
