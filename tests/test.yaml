@@ -119,7 +119,7 @@
 - name: test sundeck tags
   query: |
     select 1
-    -- {"app": "sundeck", "warehouse_updated": true, "query_text_updated": true, "flow_name": "DEFAULT", "query_rejected": false, "hooks_applied": ["hook1", "hook2"], "reject_message": "unknown"}
+    -- {"app": "sundeck", "warehouse_updated": true, "query_text_updated": true, "flow_name": "DEFAULT", "query_rejected": false, "hooks_applied": ["hook1", "hook2"], "reject_message": "unknown", "workload": "dev", "kind" : "pre_hook"}
   outcome:
     - source: sundeck
       key: app
@@ -149,6 +149,14 @@
       key: reject_message
       value: unknown
       type: TRACE
+    - source: sundeck
+      key: workload
+      value: dev
+      type: DIMENSION
+    - source: sundeck
+      key: kind
+      value: pre_hook
+      type: DIMENSION
 - name: test sundeck service tags
   query: |
     select 1
