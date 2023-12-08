@@ -3,10 +3,11 @@ import hex from '../../declarations/hex.yaml';
 import mode from '../../declarations/mode.yaml';
 import sigma from '../../declarations/sigma.yaml';
 import sundeck from '../../declarations/sundeck.yaml';
+import metabase from '../../declarations/metabase.yaml';
 
 
 export function NewExtractor(parser) {
-  let decls = [dbt, hex, mode, sigma, sundeck];
+  let decls = [dbt, hex, mode, sigma, sundeck, metabase];
 
   let e = new Extractor()
   e.parser = parser;

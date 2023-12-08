@@ -1,0 +1,26 @@
+name: metabase
+site: "https://github.com/metabase/metabase"
+identifier:
+  fields:
+    client: "Metabase"
+fields:
+  - name: client
+    type: APPLICATION
+  - name: serverId
+    type: TRACE
+  - name: queryHash
+    type: TRACE
+  - name: queryType
+    type: DIMENSION
+  - name: cardId
+    type: DIMENSION
+  - name: dashboardId
+    type: DIMENSION
+  - name: context
+    type: TRACE
+  - name: userId
+    type: DIMENSION
+  - name: databaseId
+    type: DIMENSION
+  - name: pulseId
+    type: DIMENSION

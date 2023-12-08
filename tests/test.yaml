@@ -182,3 +182,48 @@
       key: user
       value: f94ec932-29a3-4dea-91e8-1d531bf9c03c
       type: DIMENSION
+- name: test metabase service tags
+  query: |
+    select 1
+    -- {"client": "Metabase", "serverId": "f94ec932-29a3-4dea-91e8-1d531bf9c03c", "queryHash": "0eb234431d074773a66ff2e2aa31f051694ce11de8bd5c35a03166278ae8531a", "queryType": "query", "cardId": 1, "dashboardId": 1, "context": "dashboard", "userId": 1, "databaseId": 3, "pulseId": null}
+  outcome:
+    - source: metabase
+      key: client
+      value: Metabase
+      type: APPLICATION
+    - source: metabase
+      key: serverId
+      value: f94ec932-29a3-4dea-91e8-1d531bf9c03c
+      type: TRACE
+    - source: metabase
+      key: queryHash
+      value: 0eb234431d074773a66ff2e2aa31f051694ce11de8bd5c35a03166278ae8531a
+      type: TRACE
+    - source: metabase
+      key: queryType
+      value: query
+      type: DIMENSION
+    - source: metabase
+      key: cardId
+      value: 1
+      type: DIMENSION
+    - source: metabase
+      key: dashboardId
+      value: 1
+      type: DIMENSION
+    - source: metabase
+      key: context
+      value: dashboard
+      type: TRACE
+    - source: metabase
+      key: userId
+      value: 1
+      type: DIMENSION
+    - source: metabase
+      key: databaseId
+      value: 3
+      type: DIMENSION
+    - source: metabase
+      key: pulseId
+      type: DIMENSION
+      value: null

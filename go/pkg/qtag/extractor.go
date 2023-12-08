@@ -5,10 +5,11 @@ import (
 	_ "embed"
 	"encoding/json"
 	"fmt"
+	"strings"
+
 	"github.com/antlr/antlr4/runtime/Go/antlr/v4"
 	"github.com/goccy/go-yaml"
 	grammar "github.com/sundeck-io/qtag/go/pkg/grammar/generated"
-	"strings"
 )
 
 type treeShapeListener struct {
@@ -253,6 +254,9 @@ func (d Declaration) extract(comment jsonComment, includeUnknownAttributes bool)
 	var tags []QTag
 	for k, v := range comment.metadata {
 		val, found := d.findAttribute(k)
+		if f, ok := v.(float64); ok {
+			v = uint64(f)
+		}
 		if found {
 			tags = append(tags, QTag{
 				Source: d.Name,
