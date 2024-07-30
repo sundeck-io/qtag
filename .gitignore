@@ -4,4 +4,3 @@ js/node_modules
 js/yarn-error.log
 **/*.jar
 **/gen/
-**/generated.go
