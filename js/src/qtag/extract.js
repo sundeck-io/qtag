@@ -160,7 +160,7 @@ function extractInner(d, comment, includeUnknownAttributes) {
        });
     } else if (includeUnknownAttributes) {
       tags.push({
-        "SOURCE": d.Name,
+        "SOURCE": d.name,
         "TYPE": "UNDECLARED",
         "KEY": key,
         "VALUE": comment.metadata[key]
