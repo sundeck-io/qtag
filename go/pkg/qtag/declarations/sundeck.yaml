@@ -34,3 +34,13 @@ fields:
     type: DIMENSION
   - name: kind
     type: DIMENSION
+  - name: auto_routing_matched
+    type: DIMENSION
+  - name: auto_routing_matched_warehouse
+    type: DIMENSION
+  - name: auto_routing_matched_warehouse_size
+    type: DIMENSION
+  - name: auto_routing_num_computed_signatures
+    type: TRACE
+  - name: auto_routing_warehouse_pool
+    type: DIMENSION

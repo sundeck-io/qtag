@@ -20,8 +20,6 @@ fields:
     type: DIMENSION
   - name: project_name
     type: DIMENSION
-  - name: target_name
-    type: DIMENSION
   - name: target_database
     type: DIMENSION
   - name: target_schema
