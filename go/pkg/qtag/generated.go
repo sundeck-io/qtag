@@ -32,6 +32,12 @@ func (c *Dbt) UnknownValue(name string, value any) {
 	c.values[name] = value
 }
 
+func (c *Dbt) Merge(other *Dbt) {
+	for k, v := range other.values {
+		c.values[k] = v
+	}
+}
+
 func (c *Dbt) AddApp(value any) {
 	c.values["app"] = value
 }
@@ -164,6 +170,12 @@ func (c *Hex) UnknownValue(name string, value any) {
 	c.values[name] = value
 }
 
+func (c *Hex) Merge(other *Hex) {
+	for k, v := range other.values {
+		c.values[k] = v
+	}
+}
+
 func (c *Hex) AddCategories(value any) {
 	c.values["categories"] = value
 }
@@ -218,6 +230,12 @@ func (c *Metabase) Format() (string, error) {
 
 func (c *Metabase) UnknownValue(name string, value any) {
 	c.values[name] = value
+}
+
+func (c *Metabase) Merge(other *Metabase) {
+	for k, v := range other.values {
+		c.values[k] = v
+	}
 }
 
 func (c *Metabase) AddClient(value any) {
@@ -288,6 +306,12 @@ func (c *Mode) UnknownValue(name string, value any) {
 	c.values[name] = value
 }
 
+func (c *Mode) Merge(other *Mode) {
+	for k, v := range other.values {
+		c.values[k] = v
+	}
+}
+
 func (c *Mode) AddUser(value any) {
 	c.values["user"] = value
 }
@@ -332,6 +356,12 @@ func (c *Sigma) UnknownValue(name string, value any) {
 	c.values[name] = value
 }
 
+func (c *Sigma) Merge(other *Sigma) {
+	for k, v := range other.values {
+		c.values[k] = v
+	}
+}
+
 func (c *Sigma) AddKind(value any) {
 	c.values["kind"] = value
 }
@@ -374,6 +404,12 @@ func (c *Sundeck) Format() (string, error) {
 
 func (c *Sundeck) UnknownValue(name string, value any) {
 	c.values[name] = value
+}
+
+func (c *Sundeck) Merge(other *Sundeck) {
+	for k, v := range other.values {
+		c.values[k] = v
+	}
 }
 
 func (c *Sundeck) AddApp(value any) {
@@ -434,4 +470,24 @@ func (c *Sundeck) AddWorkload(value any) {
 
 func (c *Sundeck) AddKind(value any) {
 	c.values["kind"] = value
+}
+
+func (c *Sundeck) AddAuto_routing_matched(value any) {
+	c.values["auto_routing_matched"] = value
+}
+
+func (c *Sundeck) AddAuto_routing_matched_warehouse(value any) {
+	c.values["auto_routing_matched_warehouse"] = value
+}
+
+func (c *Sundeck) AddAuto_routing_matched_warehouse_size(value any) {
+	c.values["auto_routing_matched_warehouse_size"] = value
+}
+
+func (c *Sundeck) AddAuto_routing_num_computed_signatures(value any) {
+	c.values["auto_routing_num_computed_signatures"] = value
+}
+
+func (c *Sundeck) AddAuto_routing_warehouse_pool(value any) {
+	c.values["auto_routing_warehouse_pool"] = value
 }
