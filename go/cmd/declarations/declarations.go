@@ -69,6 +69,12 @@ func (c *{{.ClassName}}) Format() (string, error) {
 func (c *{{.ClassName}}) UnknownValue(name string, value any) {
 c.values[name] = value
 }
+
+func (c *{{.ClassName}}) Merge(other *{{.ClassName}}) {
+	for k, v := range other.values {
+		c.values[k] = v
+	}
+}
 `
 
 // Template for generating methods
