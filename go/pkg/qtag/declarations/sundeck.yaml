@@ -42,5 +42,13 @@ fields:
     type: DIMENSION
   - name: auto_routing_num_computed_signatures
     type: TRACE
+  - name: lookup_routing_matched
+    type: DIMENSION
+  - name: lookup_routing_matched_warehouse
+    type: DIMENSION
+  - name: lookup_routing_num_computed_signatures
+    type: TRACE
   - name: auto_routing_warehouse_pool
     type: DIMENSION
+  - name: query_id
+    type: TRACE

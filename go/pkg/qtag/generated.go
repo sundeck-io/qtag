@@ -488,6 +488,22 @@ func (c *Sundeck) AddAuto_routing_num_computed_signatures(value any) {
 	c.values["auto_routing_num_computed_signatures"] = value
 }
 
+func (c *Sundeck) AddLookup_routing_matched(value any) {
+	c.values["lookup_routing_matched"] = value
+}
+
+func (c *Sundeck) AddLookup_routing_matched_warehouse(value any) {
+	c.values["lookup_routing_matched_warehouse"] = value
+}
+
+func (c *Sundeck) AddLookup_routing_num_computed_signatures(value any) {
+	c.values["lookup_routing_num_computed_signatures"] = value
+}
+
 func (c *Sundeck) AddAuto_routing_warehouse_pool(value any) {
 	c.values["auto_routing_warehouse_pool"] = value
+}
+
+func (c *Sundeck) AddQuery_id(value any) {
+	c.values["query_id"] = value
 }
