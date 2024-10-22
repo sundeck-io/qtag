@@ -24,6 +24,8 @@ fields:
     type: DIMENSION
   - name: hooks_applied
     type: TRACE
+  - name: hook_ids_applied
+    type: TRACE
   - name: reject_message
     type: TRACE
   - name: parent_query_id

@@ -452,6 +452,10 @@ func (c *Sundeck) AddHooks_applied(value any) {
 	c.values["hooks_applied"] = value
 }
 
+func (c *Sundeck) AddHook_ids_applied(value any) {
+	c.values["hook_ids_applied"] = value
+}
+
 func (c *Sundeck) AddReject_message(value any) {
 	c.values["reject_message"] = value
 }
