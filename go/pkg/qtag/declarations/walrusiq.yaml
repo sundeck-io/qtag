@@ -1,0 +1,10 @@
+name: walrusiq
+site: "https://sundeck.io"
+identifier:
+  fields:
+    app: walrusiq
+fields:
+  - name: app
+    type: APPLICATION
+  - name: suggested_warehouse_size
+    type: DIMENSION

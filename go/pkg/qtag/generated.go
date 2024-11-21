@@ -511,3 +511,45 @@ func (c *Sundeck) AddAuto_routing_warehouse_pool(value any) {
 func (c *Sundeck) AddQuery_id(value any) {
 	c.values["query_id"] = value
 }
+
+type Walrusiq struct {
+	Builder
+	name       string
+	identifier map[string]any
+	values     map[string]any
+}
+
+func NewWalrusiq() *Walrusiq {
+	x := Walrusiq{}
+	x.init()
+	return &x
+}
+
+func (c *Walrusiq) init() {
+	c.name = "walrusiq"
+	c.identifier = make(map[string]any)
+	json.Unmarshal([]byte("{\"fields\":{\"app\":\"walrusiq\"}}"), &c.identifier)
+	c.values = make(map[string]any)
+}
+
+func (c *Walrusiq) Format() (string, error) {
+	return format(c.name, c.identifier, c.values)
+}
+
+func (c *Walrusiq) UnknownValue(name string, value any) {
+	c.values[name] = value
+}
+
+func (c *Walrusiq) Merge(other *Walrusiq) {
+	for k, v := range other.values {
+		c.values[k] = v
+	}
+}
+
+func (c *Walrusiq) AddApp(value any) {
+	c.values["app"] = value
+}
+
+func (c *Walrusiq) AddSuggested_warehouse_size(value any) {
+	c.values["suggested_warehouse_size"] = value
+}

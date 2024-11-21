@@ -227,3 +227,16 @@
       key: pulseId
       type: DIMENSION
       value: null
+- name: test walrusiq tags
+  query: |
+    select 1
+    -- {"app": "walrusiq", "suggested_warehouse_size": "Small"}
+  outcome:
+    - source: walrusiq
+      key: app
+      value: walrusiq
+      type: APPLICATION
+    - source: walrusiq
+      key: suggested_warehouse_size
+      value: Small
+      type: DIMENSION
