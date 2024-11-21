@@ -4,10 +4,11 @@ import mode from '../../declarations/mode.yaml';
 import sigma from '../../declarations/sigma.yaml';
 import sundeck from '../../declarations/sundeck.yaml';
 import metabase from '../../declarations/metabase.yaml';
+import walrusiq from '../../declarations/walrusiq.yaml';
 
 
 export function NewExtractor(parser) {
-  let decls = [dbt, hex, mode, sigma, sundeck, metabase];
+  let decls = [dbt, hex, mode, sigma, sundeck, metabase, walrusiq];
 
   let e = new Extractor()
   e.parser = parser;
