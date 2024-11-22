@@ -240,3 +240,16 @@
       key: suggested_warehouse_size
       value: Small
       type: DIMENSION
+- name: test walrusiq suggested_warehouse_name tag
+  query: |
+    select 1
+    -- {"app": "walrusiq", "suggested_warehouse_name": "COMPUTE_WH"}
+  outcome:
+    - source: walrusiq
+      key: app
+      value: walrusiq
+      type: APPLICATION
+    - source: walrusiq
+      key: suggested_warehouse_name
+      value: COMPUTE_WH
+      type: DIMENSION
