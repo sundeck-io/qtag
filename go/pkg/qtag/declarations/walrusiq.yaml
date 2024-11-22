@@ -8,3 +8,5 @@ fields:
     type: APPLICATION
   - name: suggested_warehouse_size
     type: DIMENSION
+  - name: suggested_warehouse_name
+    type: DIMENSION

@@ -553,3 +553,7 @@ func (c *Walrusiq) AddApp(value any) {
 func (c *Walrusiq) AddSuggested_warehouse_size(value any) {
 	c.values["suggested_warehouse_size"] = value
 }
+
+func (c *Walrusiq) AddSuggested_warehouse_name(value any) {
+	c.values["suggested_warehouse_name"] = value
+}
