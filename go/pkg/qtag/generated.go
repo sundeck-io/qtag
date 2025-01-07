@@ -512,6 +512,14 @@ func (c *Sundeck) AddQuery_id(value any) {
 	c.values["query_id"] = value
 }
 
+func (c *Sundeck) AddUse_role_skipped(value any) {
+	c.values["use_role_skipped"] = value
+}
+
+func (c *Sundeck) AddAuto_routing_warehouse_pool_policy_id(value any) {
+	c.values["auto_routing_warehouse_pool_policy_id"] = value
+}
+
 type Walrusiq struct {
 	Builder
 	name       string

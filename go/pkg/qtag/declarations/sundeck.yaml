@@ -54,3 +54,7 @@ fields:
     type: DIMENSION
   - name: query_id
     type: TRACE
+  - name: use_role_skipped
+    type: TRACE
+  - name: auto_routing_warehouse_pool_policy_id
+    type: DIMENSION
