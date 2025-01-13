@@ -524,6 +524,18 @@ func (c *Sundeck) AddAuto_routing_uniform_random_warehouse_choice(value any) {
 	c.values["auto_routing_uniform_random_warehouse_choice"] = value
 }
 
+func (c *Sundeck) AddIcecap_target_size(value any) {
+	c.values["icecap_target_size"] = value
+}
+
+func (c *Sundeck) AddIcecap_used(value any) {
+	c.values["icecap_used"] = value
+}
+
+func (c *Sundeck) AddIcecap_no_route_reason(value any) {
+	c.values["icecap_no_route_reason"] = value
+}
+
 type Walrusiq struct {
 	Builder
 	name       string
