@@ -520,6 +520,10 @@ func (c *Sundeck) AddAuto_routing_warehouse_pool_policy_id(value any) {
 	c.values["auto_routing_warehouse_pool_policy_id"] = value
 }
 
+func (c *Sundeck) AddAuto_routing_uniform_random_warehouse_choice(value any) {
+	c.values["auto_routing_uniform_random_warehouse_choice"] = value
+}
+
 type Walrusiq struct {
 	Builder
 	name       string
