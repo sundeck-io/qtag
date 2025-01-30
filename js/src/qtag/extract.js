@@ -5,10 +5,11 @@ import sigma from '../../declarations/sigma.yaml';
 import sundeck from '../../declarations/sundeck.yaml';
 import metabase from '../../declarations/metabase.yaml';
 import walrusiq from '../../declarations/walrusiq.yaml';
+import icecap from '../../declarations/icecap.yaml';
 
 
 export function NewExtractor(parser) {
-  let decls = [dbt, hex, mode, sigma, sundeck, metabase, walrusiq];
+  let decls = [dbt, hex, mode, sigma, sundeck, metabase, walrusiq, icecap];
 
   let e = new Extractor()
   e.parser = parser;
