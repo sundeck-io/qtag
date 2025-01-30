@@ -60,3 +60,5 @@ fields:
     type: DIMENSION
   - name: auto_routing_uniform_random_warehouse_choice
     type: DIMENSION
+  - name: icecap
+    type: TRACE
