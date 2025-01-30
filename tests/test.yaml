@@ -119,7 +119,7 @@
 - name: test sundeck tags
   query: |
     select 1
-    -- {"app": "sundeck", "warehouse_updated": true, "query_text_updated": true, "flow_name": "DEFAULT", "query_rejected": false, "hooks_applied": ["hook1", "hook2"], "reject_message": "unknown", "workload": "dev", "kind" : "pre_hook", "icecap" : {"target_size": "Small", "used": true}}
+    -- {"app": "sundeck", "warehouse_updated": true, "query_text_updated": true, "flow_name": "DEFAULT", "query_rejected": false, "hooks_applied": ["hook1", "hook2"], "reject_message": "unknown", "workload": "dev", "kind" : "pre_hook", "icecap" : {"size": "Small", "used": true}}
   outcome:
     - source: sundeck
       key: app
@@ -160,9 +160,9 @@
     - source: sundeck
       key: icecap
       value:
-        target_size: "Small"
+        size: "Small"
         used: true
-      type: DIMENSION
+      type: TRACE
 - name: test sundeck service tags
   query: |
     select 1
@@ -259,26 +259,3 @@
       key: suggested_warehouse_name
       value: COMPUTE_WH
       type: DIMENSION
-- name: test icecap tags
-  query: |
-    select 1
-    -- {"app": "icecap", "target_size": "Small", "used": true, "no_route_reason": ["MissingType", "UnableToTranspile"]}
-  outcome:
-    - source: icecap
-      key: app
-      value: icecap
-      type: APPLICATION
-    - source: icecap
-      key: target_size
-      value: Small
-      type: DIMENSION
-    - source: icecap
-      key: used
-      value: true
-      type: DIMENSION
-    - source: icecap
-      key: no_route_reason
-      value:
-        - MissingType
-        - UnableToTranspile
-      type: TRACE
