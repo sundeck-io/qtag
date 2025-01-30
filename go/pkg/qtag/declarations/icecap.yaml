@@ -1,0 +1,14 @@
+name: icecap
+site: "https://sundeck.io"
+identifier:
+  fields:
+    app: icecap
+fields:
+  - name: app
+    type: APPLICATION
+  - name: target_size
+    type: DIMENSION
+  - name: used
+    type: DIMENSION
+  - name: no_route_reason
+    type: TRACE

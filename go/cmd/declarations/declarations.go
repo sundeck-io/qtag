@@ -75,6 +75,10 @@ func (c *{{.ClassName}}) Merge(other *{{.ClassName}}) {
 		c.values[k] = v
 	}
 }
+
+func (c *{{.ClassName}}) Values() map[string]any {
+	return c.values
+}
 `
 
 // Template for generating methods

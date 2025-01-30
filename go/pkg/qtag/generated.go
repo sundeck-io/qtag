@@ -38,6 +38,10 @@ func (c *Dbt) Merge(other *Dbt) {
 	}
 }
 
+func (c *Dbt) Values() map[string]any {
+	return c.values
+}
+
 func (c *Dbt) AddApp(value any) {
 	c.values["app"] = value
 }
@@ -176,6 +180,10 @@ func (c *Hex) Merge(other *Hex) {
 	}
 }
 
+func (c *Hex) Values() map[string]any {
+	return c.values
+}
+
 func (c *Hex) AddCategories(value any) {
 	c.values["categories"] = value
 }
@@ -202,6 +210,60 @@ func (c *Hex) AddProject_url(value any) {
 
 func (c *Hex) AddUser_email(value any) {
 	c.values["user_email"] = value
+}
+
+type Icecap struct {
+	Builder
+	name       string
+	identifier map[string]any
+	values     map[string]any
+}
+
+func NewIcecap() *Icecap {
+	x := Icecap{}
+	x.init()
+	return &x
+}
+
+func (c *Icecap) init() {
+	c.name = "icecap"
+	c.identifier = make(map[string]any)
+	json.Unmarshal([]byte("{\"fields\":{\"app\":\"icecap\"}}"), &c.identifier)
+	c.values = make(map[string]any)
+}
+
+func (c *Icecap) Format() (string, error) {
+	return format(c.name, c.identifier, c.values)
+}
+
+func (c *Icecap) UnknownValue(name string, value any) {
+	c.values[name] = value
+}
+
+func (c *Icecap) Merge(other *Icecap) {
+	for k, v := range other.values {
+		c.values[k] = v
+	}
+}
+
+func (c *Icecap) Values() map[string]any {
+	return c.values
+}
+
+func (c *Icecap) AddApp(value any) {
+	c.values["app"] = value
+}
+
+func (c *Icecap) AddTarget_size(value any) {
+	c.values["target_size"] = value
+}
+
+func (c *Icecap) AddUsed(value any) {
+	c.values["used"] = value
+}
+
+func (c *Icecap) AddNo_route_reason(value any) {
+	c.values["no_route_reason"] = value
 }
 
 type Metabase struct {
@@ -236,6 +298,10 @@ func (c *Metabase) Merge(other *Metabase) {
 	for k, v := range other.values {
 		c.values[k] = v
 	}
+}
+
+func (c *Metabase) Values() map[string]any {
+	return c.values
 }
 
 func (c *Metabase) AddClient(value any) {
@@ -312,6 +378,10 @@ func (c *Mode) Merge(other *Mode) {
 	}
 }
 
+func (c *Mode) Values() map[string]any {
+	return c.values
+}
+
 func (c *Mode) AddUser(value any) {
 	c.values["user"] = value
 }
@@ -362,6 +432,10 @@ func (c *Sigma) Merge(other *Sigma) {
 	}
 }
 
+func (c *Sigma) Values() map[string]any {
+	return c.values
+}
+
 func (c *Sigma) AddKind(value any) {
 	c.values["kind"] = value
 }
@@ -410,6 +484,10 @@ func (c *Sundeck) Merge(other *Sundeck) {
 	for k, v := range other.values {
 		c.values[k] = v
 	}
+}
+
+func (c *Sundeck) Values() map[string]any {
+	return c.values
 }
 
 func (c *Sundeck) AddApp(value any) {
@@ -524,16 +602,8 @@ func (c *Sundeck) AddAuto_routing_uniform_random_warehouse_choice(value any) {
 	c.values["auto_routing_uniform_random_warehouse_choice"] = value
 }
 
-func (c *Sundeck) AddIcecap_target_size(value any) {
-	c.values["icecap_target_size"] = value
-}
-
-func (c *Sundeck) AddIcecap_used(value any) {
-	c.values["icecap_used"] = value
-}
-
-func (c *Sundeck) AddIcecap_no_route_reason(value any) {
-	c.values["icecap_no_route_reason"] = value
+func (c *Sundeck) AddIcecap(value any) {
+	c.values["icecap"] = value
 }
 
 type Walrusiq struct {
@@ -568,6 +638,10 @@ func (c *Walrusiq) Merge(other *Walrusiq) {
 	for k, v := range other.values {
 		c.values[k] = v
 	}
+}
+
+func (c *Walrusiq) Values() map[string]any {
+	return c.values
 }
 
 func (c *Walrusiq) AddApp(value any) {
